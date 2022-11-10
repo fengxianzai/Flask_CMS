@@ -1,0 +1,28 @@
+1.  创建项目文件结构
+
+2.  安装flask的虚拟环境virtualenv  (pip install virtualenv)
+安装完成之后可以使用命令：virtualenv --version  查看是否安装成功
+
+3.  创建虚拟环境（virtualenv venv），之后会在项目中创建一个env的文件夹，虚拟环境中的相关文件都会放在此文件夹中
+
+4.  激活虚拟环境（在使用这个虚拟环境之前，需要先将其激活，激活命令如下：venv\Scripts\activate）
+，激活后命令提示符前会显示（venv）
+
+注：启动redis服务，路径：D:\Redis   双击其中的redis-cli.exe
+
+5.  安装flask（pip install flask），可以创建一个测试项目进行测试
+
+6.  使用deactivate退出虚拟环境（venv\Scripts\deactivate）
+
+7.  创建 migirations 文件夹，所有迁移文件都放在里面：python manage.py db init 
+    自动创建迁移脚本 python manage.py db migrate -m"版本名(注释)"
+     更新数据库：python manage.py db upgrade
+如果想回退历史版本：python xxx.py db history然后记住想要返回的版本号。
+python xxx.py db downgrade 版本号（执行就可以回退到之前的版本）
+详细参考：http://www.kaotop.com/it/25020.html
+
+8.  当我们需要修改表结构时，直接在models.py里增加相应的代码，修改完成之后，继续创建新的迁移脚本。执行步骤7
+
+
+问题1：python解决列表,字典输出打印unicode转中文显示（输出中文为\u开头的）
+解决方法：通过json.dumps方法,可以转换  print json.dumps(custs,encoding='UTF-8', ensure_ascii=False)，必要时可以删除encoding参数
