@@ -13,6 +13,7 @@ itsdangerous==2.1.2
 Jinja2==3.1.2
 Mako==1.2.3
 MarkupSafe==2.1.1
+Pillow==9.3.0
 PyMySQL==1.0.2
 SQLAlchemy==1.4.42
 typing_extensions==4.4.0

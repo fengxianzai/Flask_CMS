@@ -1,5 +1,6 @@
 #coding:utf-8
 from flask import Flask
+from datetime import timedelta
 import config
 from exts import db
 
@@ -10,6 +11,8 @@ from apps.front import bp as front_bp
 
 def create_app():
 	app = Flask(__name__)
+
+	app.permanent_session_lifetime = timedelta(days=14)
 
 	# 注册蓝图
 	app.register_blueprint(admin_bp)
