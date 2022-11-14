@@ -5,11 +5,13 @@ from io import BytesIO
 from utils.captcha import create_validate_code
 from .models import Users
 from .forms import LoginForm
+from .decorators import login_required
 bp = Blueprint("admin",__name__,url_prefix='/admin')
 
 
 # 后台首页路由
 @bp.route('/index')
+@login_required
 def admin_index():
 	return render_template('admin/index.html')
 
